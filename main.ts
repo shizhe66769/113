@@ -89,6 +89,12 @@ namespace makerobo {
         NoObstacle = 1
     }
 
+     export enum enflame {
+        //% blockId="Flame" block="发现火焰"
+        Flame = 0,
+        //% blockId="NoFlame" block="无火焰"
+        NoFlame = 1
+    }
     let initialized = false
     let initializedMatrix = false
     let neoStrip: neopixel.Strip;
@@ -353,5 +359,14 @@ namespace makerobo {
         pins.setPull(pin, PinPullMode.PullUp);
         return pins.digitalReadPin(pin) == value;
     }
-    
+
+    //% blockId=Microbit_Sensor_flame block="火焰传感器|引脚 %pin|值 %value"
+    //% weight=96
+    //% blockGap=20
+    //% color="#228B22"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
+    export function flame(pin: DigitalPin, value: enflame): boolean {
+        pins.setPull(pin, PinPullMode.PullUp);
+        return pins.digitalReadPin(pin) == value;
+    }    
 }
