@@ -81,6 +81,13 @@ namespace makerobo {
         //% blockId="T5B0" block="5"
         T5B0 = 1800
     }
+    
+     export enum enObstacle {
+        //% blockId="Obstacle" block="有障碍物"
+        Obstacle = 0,
+        //% blockId="NoObstacle" block="无障碍物"
+        NoObstacle = 1
+    }
 
     let initialized = false
     let initializedMatrix = false
@@ -336,4 +343,15 @@ namespace makerobo {
         value = pins.analogReadPin(pin);
         return value;
     }
+    
+    //% blockId=Microbit_Sensor_IR block="红外避障传感器|引脚 %pin|值 %value"
+    //% weight=96
+    //% blockGap=20
+    //% color="#228B22"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
+    export function IR(pin: DigitalPin, value: enObstacle): boolean {
+        pins.setPull(pin, PinPullMode.PullUp);
+        return pins.digitalReadPin(pin) == value;
+    }
+    
 }
