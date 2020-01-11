@@ -1,8 +1,7 @@
 /*
-Riven
-modified from pxt-servo/servodriver.ts
-load dependency
-"makerobot": "file:../makerobot"
+湖南创乐博智能科技有限公司
+编辑：朱林
+日期：2020年1月11日
 */
 
 
