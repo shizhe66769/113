@@ -52,15 +52,12 @@ namespace makerobo {
         S4 = 0x04,
         S5 = 0x05,
         S6 = 0x06
-       // S7 = 0x07,
-      //  S8 = 0x08
     }
 
     export enum Motors {
         Left = 0x1,
         Right = 0x2,
         Centre = 0x3
-//        M2B = 0x4
     }
 
     export enum Steppers {
