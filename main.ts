@@ -361,7 +361,7 @@ namespace makerobo {
     }
 
     //% blockId=Microbit_Sensor_flame block="火焰传感器|引脚 %pin|值 %value"
-    //% weight=96
+    //% weight=97
     //% blockGap=20
     //% color="#228B22"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
