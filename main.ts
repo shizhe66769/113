@@ -325,4 +325,14 @@ namespace makerobo {
             stopMotor(idx);
         }
     }
+      //% blockId=Microbit_Sensor_Sound block="声音传感器|管脚 %pin"
+    //% weight=99
+    //% blockGap=20
+    //% color="#228B22"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=5
+    export function Sound(pin: AnalogPin): number {
+        let value: number;
+        value = pins.analogReadPin(pin);
+        return value;
+    }
 }
