@@ -6,7 +6,7 @@
 
 
 //% color="#31C7D5" weight=10 icon="\uf1d1"
-namespace makerobot {
+namespace makerobo {
     const PCA9685_ADDRESS = 0x40
     const MODE1 = 0x00
     const MODE2 = 0x01
@@ -51,9 +51,9 @@ namespace makerobot {
         S3 = 0x03,
         S4 = 0x04,
         S5 = 0x05,
-        S6 = 0x06,
-        S7 = 0x07,
-        S8 = 0x08
+        S6 = 0x06
+       // S7 = 0x07,
+      //  S8 = 0x08
     }
 
     export enum Motors {
@@ -215,7 +215,7 @@ namespace makerobot {
      * @param index Servo Channel; eg: S1
      * @param degree [0-180] degree of servo; eg: 0, 90, 180
     */
-    //% blockId=robotbit_servo block="Servo|%index|degree %degree"
+    //% blockId=robotbit_servo block="舵机|%index|角度 %degree"
     //% weight=100
     //% degree.min=0 degree.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -234,7 +234,7 @@ namespace makerobot {
      * @param index Servo Channel; eg: S1
      * @param degree [-45-225] degree of servo; eg: -45, 90, 225
     */
-    //% blockId=robotbit_gservo block="Geek Servo|%index|degree %degree"
+    //% blockId=robotbit_gservo block="Geek Servo|%index|角度 %degree"
     //% weight=99
     //% blockGap=50
     //% degree.min=-45 degree.max=225
@@ -251,7 +251,7 @@ namespace makerobot {
     
     //% blockId=robotbit_stepper_degree block="Stepper 28BYJ-48|%index|degree %degree"
     //% weight=90
-    export function StepperDegree(index: Steppers, degree: number): void {
+ /*   export function StepperDegree(index: Steppers, degree: number): void {
         if (!initialized) {
             initPCA9685()
         }
@@ -260,18 +260,18 @@ namespace makerobot {
         basic.pause(10240 * degree / 360);
         MotorStopAll()
     }
-
+*/
 
     //% blockId=robotbit_stepper_turn block="Stepper 28BYJ-48|%index|turn %turn"
     //% weight=90
-    export function StepperTurn(index: Steppers, turn: Turns): void {
+ /*   export function StepperTurn(index: Steppers, turn: Turns): void {
         let degree = turn;
         StepperDegree(index, degree);
     }
-
+*/
     //% blockId=robotbit_stepper_dual block="Dual Stepper(Degree) |M1 %degree1| M2 %degree2"
     //% weight=89
-    export function StepperDual(degree1: number, degree2: number): void {
+/*    export function StepperDual(degree1: number, degree2: number): void {
         if (!initialized) {
             initPCA9685()
         }
@@ -290,7 +290,7 @@ namespace makerobot {
 
         MotorStopAll()
     }
-
+*/
     /**
      * Stepper Car move forward
      * @param distance Distance to move in cm; eg: 10, 20
@@ -298,7 +298,7 @@ namespace makerobot {
     */
     //% blockId=robotbit_stpcar_move block="Car Forward|Distance(cm) %distance|Wheel Diameter(mm) %diameter"
     //% weight=88
-    export function StpCarMove(distance: number, diameter: number): void {
+ /*   export function StpCarMove(distance: number, diameter: number): void {
         if (!initialized) {
             initPCA9685()
         }
@@ -309,7 +309,7 @@ namespace makerobot {
         basic.pause(delay);
         MotorStopAll()	
     }
-
+*/
     /**
      * Stepper Car turn by degree
      * @param turn Degree to turn; eg: 90, 180, 360
@@ -319,7 +319,7 @@ namespace makerobot {
     //% blockId=robotbit_stpcar_turn block="Car Turn|Degree %turn|Wheel Diameter(mm) %diameter|Track(mm) %track"
     //% weight=87
     //% blockGap=50
-    export function StpCarTurn(turn: number, diameter: number, track: number): void {
+ /*   export function StpCarTurn(turn: number, diameter: number, track: number): void {
         if (!initialized) {
             initPCA9685()
         }
@@ -330,8 +330,8 @@ namespace makerobot {
         basic.pause(delay);
         MotorStopAll()
     }
-
-    //% blockId=robotbit_motor_run block="Motor|%index|speed %speed"
+*/
+    //% blockId=robotbit_motor_run block="电机|%index|速度 %speed"
     //% weight=85
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -367,7 +367,7 @@ namespace makerobot {
      * @param motor2 Second Motor; eg: M2A, M2B
      * @param speed2 [-255-255] speed of motor; eg: 150, -150
     */
-    //% blockId=robotbit_motor_dual block="Motor|%motor1|speed %speed1|%motor2|speed %speed2"
+    //% blockId=robotbit_motor_dual block="电机|%motor1|速度 %speed1|%motor2|速度 %speed2"
     //% weight=84
     //% speed1.min=-255 speed1.max=255
     //% speed2.min=-255 speed2.max=255
@@ -383,7 +383,7 @@ namespace makerobot {
      * @param speed [-255-255] speed of motor; eg: 150, -150
      * @param delay seconde delay to stop; eg: 1
     */
-    //% blockId=robotbit_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
+    //% blockId=robotbit_motor_rundelay block="电机|%index|速度 %speed|延时 %delay|s"
     //% weight=81
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -395,13 +395,13 @@ namespace makerobot {
 
 
 
-    //% blockId=robotbit_stop block="Motor Stop|%index|"
+    //% blockId=robotbit_stop block="停止电机|%index|"
     //% weight=80
     export function MotorStop(index: Motors): void {
         MotorRun(index, 0);
     }
 
-    //% blockId=robotbit_stop_all block="Motor Stop All"
+    //% blockId=robotbit_stop_all block="停止所有电机"
     //% weight=79
     //% blockGap=50
     export function MotorStopAll(): void {
@@ -415,7 +415,7 @@ namespace makerobot {
 
     //% blockId=robotbit_matrix_draw block="Matrix Draw|X %x|Y %y"
     //% weight=69
-    export function MatrixDraw(x: number, y: number): void {
+ /*   export function MatrixDraw(x: number, y: number): void {
         if (!initializedMatrix) {
             matrixInit();
             initializedMatrix = true;
@@ -426,7 +426,7 @@ namespace makerobot {
         matBuf[idx + 1] = tmp;
         matrixShow();
     }
-
+*/
 	/*
     //% blockId=robotbit_matrix_clean block="Matrix Clean|X %x|Y %y"
     //% weight=68
@@ -445,7 +445,7 @@ namespace makerobot {
     //% blockId=robotbit_matrix_clear block="Matrix Clear"
     //% weight=65
     //% blockGap=50
-    export function MatrixClear(): void {
+   /* export function MatrixClear(): void {
         if (!initializedMatrix) {
             matrixInit();
             initializedMatrix = true;
@@ -455,10 +455,10 @@ namespace makerobot {
         }
         matrixShow();
     }
-
+*/
     //% blockId=robotbit_ultrasonic block="Ultrasonic|pin %pin"
     //% weight=10
-    export function Ultrasonic(pin: DigitalPin): number {
+ /*   export function Ultrasonic(pin: DigitalPin): number {
 
         // send pulse
         pins.setPull(pin, PinPullMode.PullNone);
@@ -479,5 +479,5 @@ namespace makerobot {
         return Math.floor(ret*10/6/58);
     }
 
-
+*/
 }
