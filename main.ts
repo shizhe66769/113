@@ -325,7 +325,8 @@ namespace makerobo {
             stopMotor(idx);
         }
     }
-      //% blockId=Microbit_Sensor_Sound block="声音传感器|管脚 %pin"
+    
+    //% blockId=Microbit_Sensor_Sound block="声音传感器|管脚 %pin"
     //% weight=99
     //% blockGap=20
     //% color="#228B22"
